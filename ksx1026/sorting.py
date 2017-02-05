@@ -1,10 +1,13 @@
-from ksx1026 import uchar
-from ksx1026 import INDEX1100, INDEXA960, INDEXD7B0, INDEXD7CB
-from ksx1026 import HWJAMO, CPJAMO, PACHAR, CLCHAR
-from ksx1026.normalization import decomposeHangul
+from . import uchar
+from . import INDEX1100, INDEXA960, INDEXD7B0, INDEXD7CB
+from . import HWJAMO, CPJAMO, PACHAR, CLCHAR
+from .normalization import decomposeHangul
 
 
 def getHangulWeightLVT(L, V, T, _type=0):
+    """
+    for the Syllable-Initial, Syllable-Peak and Syllable-Final Letters, determine a weight.
+    """
     weight = 0
     LW = 0
     VW = 0
@@ -38,6 +41,11 @@ def getHangulWeightLVT(L, V, T, _type=0):
 
 
 def getHangulWeight(hc):
+    """
+    determine a weight for a Wanseong Hangul Syllable Block, a Hangul Letter or
+    Hangul-embedded Symbol
+    """
+
     _type = 0
     index = ord(hc)
     weight = 0
@@ -90,6 +98,9 @@ def getHangulWeight(hc):
 
 
 def sortKey(text, hangul_first=True):
+    """
+    key function for sorted
+    """
     weights = []
     for ch in text:
         if uchar.isHangulLetter(ch):

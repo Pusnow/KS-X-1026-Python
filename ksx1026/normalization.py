@@ -1,11 +1,14 @@
 
-from ksx1026 import SBase, LBase, VBase, TBase
-from ksx1026 import LCount, VCount, TCount, TCountAll, NCount, SCount
-from ksx1026 import CPJAMO, HWJAMO, PCJAMO
-from ksx1026 import uchar
+from . import SBase, LBase, VBase, TBase
+from . import LCount, VCount, TCount, NCount, SCount
+from . import CPJAMO, HWJAMO, PCJAMO
+from . import uchar
 
 
 def decomposeHangul(S):
+    """
+    returns a Johab Modern Hangul Syllable Block for the given Wanseong Modern Hangul Syllable Block
+    """
     SIndex = ord(S) - SBase
     if SIndex < 0 or SIndex >= SCount:
         return S
@@ -21,6 +24,11 @@ def decomposeHangul(S):
 
 
 def composeHangul(source):
+    """
+    returns a Wanseong Modern Hangul Syllable Block for the given Johab Modern Hangul Syllable
+    Block. Even when a portion of an Old Hangul Syllable Block is a Modern Hangul Syllable Block,
+    unlike UAX #15, that portion is not transformed to a Wanseong Modern Hangul Syllable Block.
+    """
     length = len(source)
     if length == 0:
         return ""
@@ -63,6 +71,12 @@ def composeHangul(source):
 
 
 def recomposeHangul(source):
+    """
+    If one uses a UAX #15 algorithm instead of the above compose2Hangul function for normalization,
+    an Old Hangul Syllable Block can be decomposed into a Wanseong Modern Hangul Syllable Block and
+    Johab Hangul Letter(s). In such cases, after applying, one can use the following recomposition
+    algorithm to restore a character string in Normalization Form NFC or NFKC to an L V T format.
+    """
     length = len(source)
 
     if length == 0:
@@ -88,6 +102,10 @@ def recomposeHangul(source):
 
 
 def normalizeJamoKDKC(source):
+    """
+    Normalizing Compatibility/Halfwidth Hangul Letters and Hangul-embedded symbols
+    (NormalizeJamoKDKC)
+    """
     PHBase = ord('\u3200')
     PHEnd = ord('\u320D')
     CHBase = ord('\u3260')
