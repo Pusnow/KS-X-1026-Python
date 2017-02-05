@@ -1,5 +1,6 @@
-
-"""Common Functions"""
+"""
+Unicode character determine functions for KS X 1026-1
+"""
 
 
 def isModernChoseong(L):

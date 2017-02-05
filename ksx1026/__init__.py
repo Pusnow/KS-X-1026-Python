@@ -1,5 +1,6 @@
-
-# Common Constants
+"""
+Constants for KS X 1026-1
+"""
 
 SBase = ord('\uAC00')
 LBase = ord('\u1100')

@@ -1,3 +1,6 @@
+"""
+Sort functions for KS X 1026-1
+"""
 from . import uchar
 from . import INDEX1100, INDEXA960, INDEXD7B0, INDEXD7CB
 from . import HWJAMO, CPJAMO, PACHAR, CLCHAR

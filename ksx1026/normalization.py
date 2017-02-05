@@ -1,4 +1,6 @@
-
+"""
+Nomalization functions for KS X 1026-1
+"""
 from . import SBase, LBase, VBase, TBase
 from . import LCount, VCount, TCount, NCount, SCount
 from . import CPJAMO, HWJAMO, PCJAMO
