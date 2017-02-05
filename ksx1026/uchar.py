@@ -5,7 +5,7 @@ Unicode character determine functions for KS X 1026-1
 
 def isModernChoseong(L):
     """  A Modern Hangul Syllable-Initial Letter?"""
-    if ord(L) >= ord('\u1100') and ord(L) < ord('\u1112'):
+    if ord(L) >= ord('\u1100') and ord(L) <= ord('\u1112'):
         return True
     else:
         return False
