@@ -14,6 +14,10 @@ NCount = VCount * TCount  # 588
 SCount = LCount * NCount  # 11172
 
 
+"""
+a transformation table from Hangul Compatibility Letters (0x3131 - 0x318E)
+to Johab Hangul Letters (0x1100 – 0x11FF)
+"""
 CPJAMO = [
     ord('\u1100'), ord('\u1101'), ord('\u11AA'), ord('\u1102'), ord('\u11AC'),
     ord('\u11AD'), ord('\u1103'), ord('\u1104'), ord('\u1105'), ord('\u11B0'),
@@ -36,6 +40,10 @@ CPJAMO = [
     ord('\u1192'), ord('\u1194'), ord('\u119E'), ord('\u11A1'),
 ]
 
+"""
+a transformation table from Halfwidth Hangul Letters (0xFFA0 - 0xFFDF)
+to Johab Hangul Letters (0x1100 – 0x11FF)
+"""
 HWJAMO = [
     ord('\u1160'), ord('\u1100'), ord('\u1101'), ord('\u11AA'), ord('\u1102'),
     ord('\u11AC'), ord('\u11AD'), ord('\u1103'), ord('\u1104'), ord('\u1105'),
@@ -52,6 +60,10 @@ HWJAMO = [
     ord('\u1175'), ord('\uFFDD'), ord('\uFFDE'), ord('\uFFDF'),
 ]
 
+"""
+a transformation table from Hangul-embedded Letters (0x3200 - 0x320D, 0x3260 - 0x326D)
+to Johab Hangul Letters (0x1100 – 0x11FF)
+"""
 PCJAMO = [
     ord('\u1100'), ord('\u1102'), ord('\u1103'), ord('\u1105'),
     ord('\u1106'), ord('\u1107'), ord('\u1109'), ord('\u110B'),
@@ -59,7 +71,10 @@ PCJAMO = [
     ord('\u1111'), ord('\u1112'),
 ]
 
-
+"""
+a transformation of Parenthesized Hangul Letters and syllable blocks (0x3200 - 0x321C)
+to Johab Hangul Letters (0x1100 – 0x11FF) or Wanseong Hangul syllable blocks (0xAC00 - 0xD7A3)
+"""
 PACHAR = [
     ord('\u1100'), ord('\u1102'), ord('\u1103'), ord('\u1105'), ord('\u1106'),
     ord('\u1107'), ord('\u1109'), ord('\u110B'), ord('\u110C'), ord('\u110E'),
@@ -70,6 +85,10 @@ PACHAR = [
     ord('\u321E'), ord('\u321F'),
 ]
 
+"""
+a transformation of Circled Hangul Letters and Syllable Blocks (0x3260 - 0x327B, 0x327E)
+to Johab Hangul Letters (0x1100 – 0x11FF) or Wanseong Hangul syllable blocks (0xAC00 - 0xD7A3)
+"""
 CLCHAR = [
     ord('\u1100'), ord('\u1102'), ord('\u1103'), ord('\u1105'), ord('\u1106'),
     ord('\u1107'), ord('\u1109'), ord('\u110B'), ord('\u110C'), ord('\u110E'),
@@ -81,6 +100,8 @@ CLCHAR = [
 
 ]
 
+
+# The order values for Johab Hangul Letters 0x1100 - 0x11FF
 INDEX1100 = [
     1, 2, 12, 24, 26, 36, 70, 86, 93, 109, 118, 138, 161, 165, 171, 176,
     177, 179, 185, 13, 14, 15, 17, 25, 41, 45, 66, 69, 77, 85, 87, 88,
@@ -100,16 +121,20 @@ INDEX1100 = [
     152, 156, 157, 180, 184, 186, 187, 188, 189, 192, 3, 6, 9, 10, 11, 14,
 ]
 
+
+# The order values for Johab Hangul Syllable-Initial Letters 0xA960 - 0xA97C
 INDEXA960 = [
     29, 30, 31, 33, 37, 38, 42, 43, 47, 51, 53, 57, 58, 62, 63, 71,
     74, 79, 100, 103, 106, 121, 141, 151, 166, 178, 183, 190, 193,
 ]
 
+# The order values for Johab Hangul Syllable-Peak Letters 0xD7B0 - 0xD7C6
 INDEXD7B0 = [
     28, 31, 35, 36, 39, 49, 53, 56, 61, 65, 66, 67, 68, 76, 77, 78,
     79, 81, 82, 84, 86, 89, 91,
 ]
 
+# The order values for Johab Hangul Syllable-Final Letters 0xD7CB - 0xD7FB
 INDEXD7CB = [
     16, 21, 26, 27, 30,
     31, 32, 33, 34, 35, 38, 40, 46, 50, 52, 55, 61, 68, 69, 72, 73,
