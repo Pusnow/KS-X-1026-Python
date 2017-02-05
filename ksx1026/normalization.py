@@ -124,26 +124,26 @@ def normalizeJamoKDKC(source):
         pf = 0
 
         if uchar.isCompatibilityLetter(ch):
-            ch = CPJAMO[ch - ord('\u3131')]
+            ch = chr(CPJAMO[ord(ch) - ord('\u3131')])
         elif PHBase <= ord(ch) and ord(ch) <= PHEnd:
             result += chr(ord('\u0028'))
             ch = chr(PCJAMO[ord(ch) - PHBase])
             pf = chr(ord('\u0029'))
         elif CHBase <= ord(ch) and ord(ch) <= CHEnd:
-            ch = PCJAMO[ord(ch) - CHBase]
+            ch = chr(PCJAMO[ord(ch) - CHBase])
         elif uchar.isHalfwidthLetter(ch):
-            ch = HWJAMO[ord(ch) - ord('\uFFA0')]
+            ch = chr(HWJAMO[ord(ch) - ord('\uFFA0')])
         else:
             result += ch
             continue
 
-        if LBase <= ord(ch) and ord(ch) < (LBase + LCount):
+        if uchar.isChoseongJamo(ch):
             result += ch
             result += chr(ord('\u1160'))
-        elif VBase <= ord(ch) and ord(ch) < (VBase + VCount):
+        elif uchar.isJungseongJamo(ch):
             result += chr(ord('\u115F'))
             result += ch
-        elif TBase <= ord(ch) and ord(ch) < (TBase + TCount):
+        elif uchar.isJongseongJamo(ch):
             result += chr(ord('\u115F'))
             result += chr(ord('\u1160'))
             result += ch
