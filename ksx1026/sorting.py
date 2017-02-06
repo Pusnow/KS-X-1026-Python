@@ -11,6 +11,7 @@ def getHangulWeightLVT(L, V, T, _type=0):
     """
     for the Syllable-Initial, Syllable-Peak and Syllable-Final Letters, determine a weight.
     """
+
     weight = 0
     LW = 0
     VW = 0
@@ -55,6 +56,16 @@ def getHangulWeight(hc):
     L = chr(0x115F)
     V = chr(0x1160)
     T = None
+
+    """
+    _type:
+    0 is assigned to a Johab Hangul Syllable Block or Wanseong Hangul Syllable Block.
+    1 is assigned when there is only a Syllable-Final Letter.
+    2 is assigned to a Halfwidth Hangul Letter.
+    3 is assigned to a Hangul Compatibility Letter.
+    4 is assigned to a Parenthesized Hangul Letter/Syllable Block.
+    5 is assigned to a Circled Hangul Letter/Syllable Block.
+    """
 
     if uchar.isJongseongJamo(hc):
         _type = 1
