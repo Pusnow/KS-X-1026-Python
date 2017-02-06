@@ -89,6 +89,9 @@ def recomposeHangul(source):
     result += last
     for i in range(1, length):
         ch = source[i]
+
+        # check to see if two consecutive characters are a Wanseong Modern Hangul
+        # Syallable Block and a Syllable-Final Letter.
         SIndex = ord(last) + SBase
         if 0 <= SIndex and SIndex < SCount and (SIndex % TCount) == 0:
             if uchar.isOldJongseong(ch):
