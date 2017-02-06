@@ -5,7 +5,7 @@ Unicode character determine functions for KS X 1026-1
 
 def isModernChoseong(L):
     """  A Modern Hangul Syllable-Initial Letter?"""
-    if ord(L) >= ord('\u1100') and ord(L) <= ord('\u1112'):
+    if ord(L) >= 0x1100 and ord(L) <= 0x1112:
         return True
     else:
         return False
@@ -13,8 +13,8 @@ def isModernChoseong(L):
 
 def isChoseongJamo(L):
     """Hangul Syllable-Initial Letter?"""
-    if (ord(L) >= ord('\u1100') and ord(L) <= ord('\u115F')) or \
-            (ord(L) >= ord('\uA960') and ord(L) <= ord('\uA97C')):
+    if (ord(L) >= 0x1100 and ord(L) <= 0x115F) or \
+            (ord(L) >= 0xA960 and ord(L) <= 0xA97C):
         return True
     else:
         return False
@@ -22,7 +22,7 @@ def isChoseongJamo(L):
 
 def isModernJungseong(V):
     """A Modern Hangul Syllable-Peak Letter?"""
-    if ord(V) > ord('\u1160') and ord(V) <= ord('\u1175'):
+    if ord(V) > 0x1160 and ord(V) <= 0x1175:
         return True
     else:
         return False
@@ -30,8 +30,8 @@ def isModernJungseong(V):
 
 def isJungseongJamo(V):
     """A Hangul Syllable-Peak Letter?"""
-    if (ord('\u1160') <= ord(V) and ord(V) <= ord('\u11A7')) or \
-            (ord('\uD7B0') <= ord(V) and ord(V) <= ord('\uD7C6')):
+    if (0x1160 <= ord(V) and ord(V) <= 0x11A7) or \
+            (0xD7B0 <= ord(V) and ord(V) <= 0xD7C6):
         return True
     else:
         return False
@@ -39,7 +39,7 @@ def isJungseongJamo(V):
 
 def isModernJongseong(T):
     """A Modern Hangul Syllable-Final Letter?"""
-    if ord('\u11A8') <= ord(T) and ord(T) <= ord('\u11C2'):
+    if 0x11A8 <= ord(T) and ord(T) <= 0x11C2:
         return True
     else:
         return False
@@ -47,8 +47,8 @@ def isModernJongseong(T):
 
 def isOldJongseong(T):
     """A Old Hangul Syllable-Final Letter?"""
-    if (ord('\u11C3') <= ord(T) and ord(T) <= ord('\u11FF')) or \
-            (ord('\uD7CB') <= ord(T) and ord(T) <= ord('\uD7FB')):
+    if (0x11C3 <= ord(T) and ord(T) <= 0x11FF) or \
+            (0xD7CB <= ord(T) and ord(T) <= 0xD7FB):
         return True
     else:
         return False
@@ -56,8 +56,8 @@ def isOldJongseong(T):
 
 def isJongseongJamo(T):
     """A Hangul Syllable-Final Letter?"""
-    if (ord('\u11A8') <= ord(T) and ord(T) <= ord('\u11FF')) or \
-            (ord('\uD7CB') <= ord(T) and T <= ord('\uD7FB')):
+    if (0x11A8 <= ord(T) and ord(T) <= 0x11FF) or \
+            (0xD7CB <= ord(T) and T <= 0xD7FB):
         return True
     else:
         return False
@@ -65,10 +65,10 @@ def isJongseongJamo(T):
 
 def isHangulJamo(C):
     """A Johab Hangul Letter?"""
-    if (ord('\u1100') <= ord(C) and ord(C) <= ord('\u11FF')) or \
-            (ord('\uA960') <= ord(C) and ord(C) <= ord('\uA97C')) or \
-            (ord('\uD7B0') <= ord(C) and ord(C) <= ord('\uD7C6')) or \
-            (ord('\uD7CB') <= ord(C) and ord(C) <= ord('\uD7FB')):
+    if (0x1100 <= ord(C) and ord(C) <= 0x11FF) or \
+            (0xA960 <= ord(C) and ord(C) <= 0xA97C) or \
+            (0xD7B0 <= ord(C) and ord(C) <= 0xD7C6) or \
+            (0xD7CB <= ord(C) and ord(C) <= 0xD7FB):
         return True
     else:
         return False
@@ -76,7 +76,7 @@ def isHangulJamo(C):
 
 def isHalfwidthLetter(C):
     """A Halfwidth Hangul Letter?"""
-    if ord('\uFFA0') <= ord(C) and ord(C) <= ord('\uFFDF'):
+    if 0xFFA0 <= ord(C) and ord(C) <= 0xFFDF:
         return True
     else:
         return False
@@ -84,7 +84,7 @@ def isHalfwidthLetter(C):
 
 def isCompatibilityLetter(C):
     """A Hangul Compatibility Letter?"""
-    if ord('\u3131') <= ord(C) and ord(C) <= ord('\u318E'):
+    if 0x3131 <= ord(C) and ord(C) <= 0x318E:
         return True
     else:
         return False
@@ -92,7 +92,7 @@ def isCompatibilityLetter(C):
 
 def isParenthesizedLetter(C):
     """A Parenthesized Hangul Letter or a Syllable Block?"""
-    if ord('\u3200') <= ord(C) and ord(C) <= ord('\u321F'):
+    if 0x3200 <= ord(C) and ord(C) <= 0x321F:
         return True
     else:
         return False
@@ -100,7 +100,7 @@ def isParenthesizedLetter(C):
 
 def isCircledLetter(C):
     """A Circled Hangul Letter or a Syllable Block?"""
-    if ord('\u3260') <= ord(C) and ord(C) <= ord('\u327F'):
+    if 0x3260 <= ord(C) and ord(C) <= 0x327F:
         return True
     else:
         return False
@@ -108,7 +108,7 @@ def isCircledLetter(C):
 
 def isPrecomposedSyllable(S):
     """A Wanseong Hangul Syllable Block?"""
-    if ord('\uAC00') <= ord(S) and ord(S) <= ord('\ud7A3'):
+    if 0xAC00 <= ord(S) and ord(S) <= 0xd7A3:
         return True
     else:
         return False

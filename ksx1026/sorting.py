@@ -19,23 +19,23 @@ def getHangulWeightLVT(L, V, T, _type=0):
     if uchar.isChoseongJamo(L):
         if uchar.isJungseongJamo(V):
             if T is None or uchar.isJongseongJamo(T):
-                if ord(L) < ord('\u1200'):
-                    LW = INDEX1100[ord(L) - ord('\u1100')]
+                if ord(L) < 0x1200:
+                    LW = INDEX1100[ord(L) - 0x1100]
                 else:
-                    LW = INDEXA960[ord(L) - ord('\uA960')]
+                    LW = INDEXA960[ord(L) - 0xA960]
 
-                if ord(V) < ord('\u1200'):
-                    VW = INDEX1100[ord(V) - ord('\u1100')]
+                if ord(V) < 0x1200:
+                    VW = INDEX1100[ord(V) - 0x1100]
                 else:
-                    VW = INDEXD7B0[ord(V) - ord('\uD7B0')]
+                    VW = INDEXD7B0[ord(V) - 0xD7B0]
 
                 if T is not None:
-                    if ord(V) < ord('\u1200'):
-                        TW = INDEX1100[ord(T) - ord('\u1100')]
+                    if ord(V) < 0x1200:
+                        TW = INDEX1100[ord(T) - 0x1100]
                     else:
-                        TW = INDEXD7CB[ord(T) - ord('\uD7CB')]
-                if ord(L) == ord('\u115F') and \
-                        ord(V) == ord('\u1160') and \
+                        TW = INDEXD7CB[ord(T) - 0xD7CB]
+                if ord(L) == 0x115F and \
+                        ord(V) == 0x1160 and \
                         T is not None:
                     weight = (TW << 24) + _type
                 else:
@@ -52,8 +52,8 @@ def getHangulWeight(hc):
     _type = 0
     index = ord(hc)
     weight = 0
-    L = chr(ord('\u115F'))
-    V = chr(ord('\u1160'))
+    L = chr(0x115F)
+    V = chr(0x1160)
     T = None
 
     if uchar.isJongseongJamo(hc):
@@ -61,20 +61,20 @@ def getHangulWeight(hc):
         T = hc
     elif uchar.isHalfwidthLetter(hc):
         _type = 2
-        index = HWJAMO[index - ord('\uFFA0')]
+        index = HWJAMO[index - 0xFFA0]
         if index == ord(hc):
             raise
     elif uchar.isCompatibilityLetter(hc):
         _type = 3
-        index = CPJAMO[index - ord('\u3131')]
+        index = CPJAMO[index - 0x3131]
     elif uchar.isParenthesizedLetter(hc):
         _type = 4
-        index = PACHAR[index - ord('\u3200')]
+        index = PACHAR[index - 0x3200]
         if index == ord(hc):
             raise
     elif uchar.isCircledLetter(hc):
         _type = 5
-        index = CLCHAR[index - ord('\u3260')]
+        index = CLCHAR[index - 0x3260]
         if index == ord(hc):
             raise
 

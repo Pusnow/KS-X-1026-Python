@@ -2,10 +2,10 @@
 Constants for KS X 1026-1
 """
 
-SBase = ord('\uAC00')
-LBase = ord('\u1100')
-VBase = ord('\u1161')
-TBase = ord('\u11A7')
+SBase = 0xAC00
+LBase = 0x1100
+VBase = 0x1161
+TBase = 0x11A7
 LCount = 19
 VCount = 21
 TCount = 28
@@ -19,25 +19,25 @@ a transformation table from Hangul Compatibility Letters (0x3131 - 0x318E)
 to Johab Hangul Letters (0x1100 – 0x11FF)
 """
 CPJAMO = [
-    ord('\u1100'), ord('\u1101'), ord('\u11AA'), ord('\u1102'), ord('\u11AC'),
-    ord('\u11AD'), ord('\u1103'), ord('\u1104'), ord('\u1105'), ord('\u11B0'),
-    ord('\u11B1'), ord('\u11B2'), ord('\u11B3'), ord('\u11B4'), ord('\u11B5'),
-    ord('\u111A'), ord('\u1106'), ord('\u1107'), ord('\u1108'), ord('\u1121'),
-    ord('\u1109'), ord('\u110A'), ord('\u110B'), ord('\u110C'), ord('\u110D'),
-    ord('\u110E'), ord('\u110F'), ord('\u1110'), ord('\u1111'), ord('\u1112'),
-    ord('\u1161'), ord('\u1162'), ord('\u1163'), ord('\u1164'), ord('\u1165'),
-    ord('\u1166'), ord('\u1167'), ord('\u1168'), ord('\u1169'), ord('\u116A'),
-    ord('\u116B'), ord('\u116C'), ord('\u116D'), ord('\u116E'), ord('\u116F'),
-    ord('\u1170'), ord('\u1171'), ord('\u1172'), ord('\u1173'), ord('\u1174'),
-    ord('\u1175'), ord('\u1160'), ord('\u1114'), ord('\u1115'), ord('\u11C7'),
-    ord('\u11C8'), ord('\u11CC'), ord('\u11CE'), ord('\u11D3'), ord('\u11D7'),
-    ord('\u11D9'), ord('\u111C'), ord('\u11DD'), ord('\u11DF'), ord('\u111D'),
-    ord('\u111E'), ord('\u1120'), ord('\u1122'), ord('\u1123'), ord('\u1127'),
-    ord('\u1129'), ord('\u112B'), ord('\u112C'), ord('\u112D'), ord('\u112E'),
-    ord('\u112F'), ord('\u1132'), ord('\u1136'), ord('\u1140'), ord('\u1147'),
-    ord('\u114C'), ord('\u11F1'), ord('\u11F2'), ord('\u1157'), ord('\u1158'),
-    ord('\u1159'), ord('\u1184'), ord('\u1185'), ord('\u1188'), ord('\u1191'),
-    ord('\u1192'), ord('\u1194'), ord('\u119E'), ord('\u11A1'),
+    0x1100, 0x1101, 0x11AA, 0x1102, 0x11AC,
+    0x11AD, 0x1103, 0x1104, 0x1105, 0x11B0,
+    0x11B1, 0x11B2, 0x11B3, 0x11B4, 0x11B5,
+    0x111A, 0x1106, 0x1107, 0x1108, 0x1121,
+    0x1109, 0x110A, 0x110B, 0x110C, 0x110D,
+    0x110E, 0x110F, 0x1110, 0x1111, 0x1112,
+    0x1161, 0x1162, 0x1163, 0x1164, 0x1165,
+    0x1166, 0x1167, 0x1168, 0x1169, 0x116A,
+    0x116B, 0x116C, 0x116D, 0x116E, 0x116F,
+    0x1170, 0x1171, 0x1172, 0x1173, 0x1174,
+    0x1175, 0x1160, 0x1114, 0x1115, 0x11C7,
+    0x11C8, 0x11CC, 0x11CE, 0x11D3, 0x11D7,
+    0x11D9, 0x111C, 0x11DD, 0x11DF, 0x111D,
+    0x111E, 0x1120, 0x1122, 0x1123, 0x1127,
+    0x1129, 0x112B, 0x112C, 0x112D, 0x112E,
+    0x112F, 0x1132, 0x1136, 0x1140, 0x1147,
+    0x114C, 0x11F1, 0x11F2, 0x1157, 0x1158,
+    0x1159, 0x1184, 0x1185, 0x1188, 0x1191,
+    0x1192, 0x1194, 0x119E, 0x11A1,
 ]
 
 """
@@ -45,19 +45,19 @@ a transformation table from Halfwidth Hangul Letters (0xFFA0 - 0xFFDF)
 to Johab Hangul Letters (0x1100 – 0x11FF)
 """
 HWJAMO = [
-    ord('\u1160'), ord('\u1100'), ord('\u1101'), ord('\u11AA'), ord('\u1102'),
-    ord('\u11AC'), ord('\u11AD'), ord('\u1103'), ord('\u1104'), ord('\u1105'),
-    ord('\u11B0'), ord('\u11B1'), ord('\u11B2'), ord('\u11B3'), ord('\u11B4'),
-    ord('\u11B5'), ord('\u111A'), ord('\u1106'), ord('\u1107'), ord('\u1108'),
-    ord('\u1121'), ord('\u1109'), ord('\u110A'), ord('\u110B'), ord('\u110C'),
-    ord('\u110D'), ord('\u110E'), ord('\u110F'), ord('\u1110'), ord('\u1111'),
-    ord('\u1112'), ord('\uFFBF'), ord('\uFFC0'), ord('\uFFC1'), ord('\u1161'),
-    ord('\u1162'), ord('\u1163'), ord('\u1164'), ord('\u1165'), ord('\u1166'),
-    ord('\uFFC8'), ord('\uFFC9'), ord('\u1167'), ord('\u1168'), ord('\u1169'),
-    ord('\u116A'), ord('\u116B'), ord('\u116C'), ord('\uFFD0'), ord('\uFFD1'),
-    ord('\u116D'), ord('\u116E'), ord('\u116F'), ord('\u1170'), ord('\u1171'),
-    ord('\u1172'), ord('\uFFD8'), ord('\uFFD9'), ord('\u1173'), ord('\u1174'),
-    ord('\u1175'), ord('\uFFDD'), ord('\uFFDE'), ord('\uFFDF'),
+    0x1160, 0x1100, 0x1101, 0x11AA, 0x1102,
+    0x11AC, 0x11AD, 0x1103, 0x1104, 0x1105,
+    0x11B0, 0x11B1, 0x11B2, 0x11B3, 0x11B4,
+    0x11B5, 0x111A, 0x1106, 0x1107, 0x1108,
+    0x1121, 0x1109, 0x110A, 0x110B, 0x110C,
+    0x110D, 0x110E, 0x110F, 0x1110, 0x1111,
+    0x1112, 0xFFBF, 0xFFC0, 0xFFC1, 0x1161,
+    0x1162, 0x1163, 0x1164, 0x1165, 0x1166,
+    0xFFC8, 0xFFC9, 0x1167, 0x1168, 0x1169,
+    0x116A, 0x116B, 0x116C, 0xFFD0, 0xFFD1,
+    0x116D, 0x116E, 0x116F, 0x1170, 0x1171,
+    0x1172, 0xFFD8, 0xFFD9, 0x1173, 0x1174,
+    0x1175, 0xFFDD, 0xFFDE, 0xFFDF,
 ]
 
 """
@@ -65,10 +65,10 @@ a transformation table from Hangul-embedded Letters (0x3200 - 0x320D, 0x3260 - 0
 to Johab Hangul Letters (0x1100 – 0x11FF)
 """
 PCJAMO = [
-    ord('\u1100'), ord('\u1102'), ord('\u1103'), ord('\u1105'),
-    ord('\u1106'), ord('\u1107'), ord('\u1109'), ord('\u110B'),
-    ord('\u110C'), ord('\u110E'), ord('\u110F'), ord('\u1110'),
-    ord('\u1111'), ord('\u1112'),
+    0x1100, 0x1102, 0x1103, 0x1105,
+    0x1106, 0x1107, 0x1109, 0x110B,
+    0x110C, 0x110E, 0x110F, 0x1110,
+    0x1111, 0x1112,
 ]
 
 """
@@ -76,13 +76,13 @@ a transformation of Parenthesized Hangul Letters and syllable blocks (0x3200 - 0
 to Johab Hangul Letters (0x1100 – 0x11FF) or Wanseong Hangul syllable blocks (0xAC00 - 0xD7A3)
 """
 PACHAR = [
-    ord('\u1100'), ord('\u1102'), ord('\u1103'), ord('\u1105'), ord('\u1106'),
-    ord('\u1107'), ord('\u1109'), ord('\u110B'), ord('\u110C'), ord('\u110E'),
-    ord('\u110F'), ord('\u1110'), ord('\u1111'), ord('\u1112'), ord('\uAC00'),
-    ord('\uB098'), ord('\uB2E4'), ord('\uB77C'), ord('\uB9C8'), ord('\uBC14'),
-    ord('\uC0AC'), ord('\uC544'), ord('\uC790'), ord('\uCC28'), ord('\uCE74'),
-    ord('\uD0C0'), ord('\uD30C'), ord('\uD558'), ord('\uC8FC'), ord('\u321D'),
-    ord('\u321E'), ord('\u321F'),
+    0x1100, 0x1102, 0x1103, 0x1105, 0x1106,
+    0x1107, 0x1109, 0x110B, 0x110C, 0x110E,
+    0x110F, 0x1110, 0x1111, 0x1112, 0xAC00,
+    0xB098, 0xB2E4, 0xB77C, 0xB9C8, 0xBC14,
+    0xC0AC, 0xC544, 0xC790, 0xCC28, 0xCE74,
+    0xD0C0, 0xD30C, 0xD558, 0xC8FC, 0x321D,
+    0x321E, 0x321F,
 ]
 
 """
@@ -90,13 +90,13 @@ a transformation of Circled Hangul Letters and Syllable Blocks (0x3260 - 0x327B,
 to Johab Hangul Letters (0x1100 – 0x11FF) or Wanseong Hangul syllable blocks (0xAC00 - 0xD7A3)
 """
 CLCHAR = [
-    ord('\u1100'), ord('\u1102'), ord('\u1103'), ord('\u1105'), ord('\u1106'),
-    ord('\u1107'), ord('\u1109'), ord('\u110B'), ord('\u110C'), ord('\u110E'),
-    ord('\u110F'), ord('\u1110'), ord('\u1111'), ord('\u1112'), ord('\uAC00'),
-    ord('\uB098'), ord('\uB2E4'), ord('\uB77C'), ord('\uB9C8'), ord('\uBC14'),
-    ord('\uC0AC'), ord('\uC544'), ord('\uC790'), ord('\uCC28'), ord('\uCE74'),
-    ord('\uD0C0'), ord('\uD30C'), ord('\uD558'), ord('\u327C'), ord('\u327D'),
-    ord('\uCB60'), ord('\u326F'),
+    0x1100, 0x1102, 0x1103, 0x1105, 0x1106,
+    0x1107, 0x1109, 0x110B, 0x110C, 0x110E,
+    0x110F, 0x1110, 0x1111, 0x1112, 0xAC00,
+    0xB098, 0xB2E4, 0xB77C, 0xB9C8, 0xBC14,
+    0xC0AC, 0xC544, 0xC790, 0xCC28, 0xCE74,
+    0xD0C0, 0xD30C, 0xD558, 0x327C, 0x327D,
+    0xCB60, 0x326F,
 
 ]
 

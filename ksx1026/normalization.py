@@ -29,7 +29,9 @@ def composeHangul(source):
     """
     returns a Wanseong Modern Hangul Syllable Block for the given Johab Modern Hangul Syllable
     Block. Even when a portion of an Old Hangul Syllable Block is a Modern Hangul Syllable Block,
-    unlike UAX #15, that portion is not transformed to a Wanseong Modern Hangul Syllable Block.
+    # 15, that portion is not transformed to a Wanseong Modern Hangul Syllable
+    # Block.
+    unlike UAX
     """
     length = len(source)
     if length == 0:
@@ -111,10 +113,10 @@ def normalizeJamoKDKC(source):
     Normalizing Compatibility/Halfwidth Hangul Letters and Hangul-embedded symbols
     (NormalizeJamoKDKC)
     """
-    PHBase = ord('\u3200')
-    PHEnd = ord('\u320D')
-    CHBase = ord('\u3260')
-    CHEnd = ord('\u326D')
+    PHBase = 0x3200
+    PHEnd = 0x320D
+    CHBase = 0x3260
+    CHEnd = 0x326D
 
     length = len(source)
     if length == 0:
@@ -127,28 +129,28 @@ def normalizeJamoKDKC(source):
         pf = 0
 
         if uchar.isCompatibilityLetter(ch):
-            ch = chr(CPJAMO[ord(ch) - ord('\u3131')])
+            ch = chr(CPJAMO[ord(ch) - 0x3131])
         elif PHBase <= ord(ch) and ord(ch) <= PHEnd:
-            result += chr(ord('\u0028'))
+            result += '\u0028'
             ch = chr(PCJAMO[ord(ch) - PHBase])
-            pf = chr(ord('\u0029'))
+            pf = '\u0029'
         elif CHBase <= ord(ch) and ord(ch) <= CHEnd:
             ch = chr(PCJAMO[ord(ch) - CHBase])
         elif uchar.isHalfwidthLetter(ch):
-            ch = chr(HWJAMO[ord(ch) - ord('\uFFA0')])
+            ch = chr(HWJAMO[ord(ch) - 0xFFA0])
         else:
             result += ch
             continue
 
         if uchar.isChoseongJamo(ch):
             result += ch
-            result += chr(ord('\u1160'))
+            result += '\u1160'
         elif uchar.isJungseongJamo(ch):
-            result += chr(ord('\u115F'))
+            result += '\u115F'
             result += ch
         elif uchar.isJongseongJamo(ch):
-            result += chr(ord('\u115F'))
-            result += chr(ord('\u1160'))
+            result += '\u115F'
+            result += '\u1160'
             result += ch
 
         if pf != 0:
