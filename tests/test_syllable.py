@@ -46,6 +46,11 @@ class SyllableTest(unittest.TestCase):
             self.assertEqual(normalization.decomposeHangul(s), lvt)
 
     def test_lvt(self):
+        """
+        Test will fail if you use Python versions under 3.6.0 
+        There are bugs in unicodedata.normalize
+
+        """
         for l, v, t in self.lvt:
             lvt = "".join((l, v, t))
             s = unicodedata.normalize("NFC", lvt)
