@@ -10,6 +10,8 @@ from . import uchar
 def decomposeHangul(S):
     """
     returns a Johab Modern Hangul Syllable Block for the given Wanseong Modern Hangul Syllable Block
+
+    :param char S: Single character string
     """
     SIndex = ord(S) - SBase
     if SIndex < 0 or SIndex >= SCount:
@@ -32,6 +34,8 @@ def composeHangul(source):
     # 15, that portion is not transformed to a Wanseong Modern Hangul Syllable
     # Block.
     unlike UAX
+
+    :param string source: unicode string
     """
     length = len(source)
     if length == 0:
@@ -80,6 +84,8 @@ def recomposeHangul(source):
     an Old Hangul Syllable Block can be decomposed into a Wanseong Modern Hangul Syllable Block and
     Johab Hangul Letter(s). In such cases, after applying, one can use the following recomposition
     algorithm to restore a character string in Normalization Form NFC or NFKC to an L V T format.
+
+    :param string source: unicode string
     """
     length = len(source)
 
@@ -112,6 +118,8 @@ def normalizeJamoKDKC(source):
     """
     Normalizing Compatibility/Halfwidth Hangul Letters and Hangul-embedded symbols
     (NormalizeJamoKDKC)
+
+    :param string source: unicode string
     """
     PHBase = 0x3200
     PHEnd = 0x320D

@@ -10,6 +10,19 @@ from .normalization import decomposeHangul
 def getHangulWeightLVT(L, V, T, _type=0):
     """
     for the Syllable-Initial, Syllable-Peak and Syllable-Final Letters, determine a weight.
+
+    _type:
+    0 is assigned to a Johab Hangul Syllable Block or Wanseong Hangul Syllable Block.
+    1 is assigned when there is only a Syllable-Final Letter.
+    2 is assigned to a Halfwidth Hangul Letter.
+    3 is assigned to a Hangul Compatibility Letter.
+    4 is assigned to a Parenthesized Hangul Letter/Syllable Block.
+    5 is assigned to a Circled Hangul Letter/Syllable Block.
+
+    :param char L: Single character string
+    :param char V: Single character string
+    :param char T: Single character string
+    :param int _type: inteager (0, 1, 2, 3, 4, 5)
     """
 
     weight = 0
@@ -48,6 +61,8 @@ def getHangulWeight(hc):
     """
     determine a weight for a Wanseong Hangul Syllable Block, a Hangul Letter or
     Hangul-embedded Symbol
+
+    :param char hc: Single character string
     """
 
     _type = 0
@@ -114,6 +129,9 @@ def getHangulWeight(hc):
 def sortKey(text, hangul_first=True):
     """
     key function for sorted
+
+    :param string text: A string for weight
+    :param bool hangul_first: Boolean
     """
     weights = []
     for ch in text:

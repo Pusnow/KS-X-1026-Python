@@ -1,4 +1,18 @@
 """
+    KS-X-1026-Python
+
+    Python implementation for KS X 1026-1 and KS X 1026-2
+
+    :copyright: (c) 2017 by Wonsup Yoon
+    :license: MIT License
+"""
+
+__version__ = '0.0.1'
+
+
+
+
+"""
 Constants for KS X 1026-1
 """
 
