@@ -1,0 +1,7 @@
+ksx1026.sorting module
+======================
+
+.. automodule:: ksx1026.sorting
+    :members:
+    :undoc-members:
+    :show-inheritance:

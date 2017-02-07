@@ -1,0 +1,19 @@
+ksx1026 package
+===============
+
+Submodules
+----------
+
+.. toctree::
+
+   ksx1026.normalization
+   ksx1026.sorting
+   ksx1026.uchar
+
+Module contents
+---------------
+
+.. automodule:: ksx1026
+    :members:
+    :undoc-members:
+    :show-inheritance:
