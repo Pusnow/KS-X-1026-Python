@@ -18,5 +18,3 @@ KS X 1026 Python is available via PyPi
 or setup.py
 
     python setup.py install
-
-##
