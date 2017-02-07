@@ -1,6 +1,16 @@
 """
-Unicode character determine functions for KS X 1026-1
-"""
+========================================================================
+ Unicode character determine functions defined in KS X 1026-1
+========================================================================
+.. moduleauthor:: Wonsup Yoon <pusnow@me.com>
+
+
+Reference
+============
+
+ * http://www.unicode.org/L2/L2008/08225-n3422.pdf
+
+ """
 
 
 def isModernChoseong(L):

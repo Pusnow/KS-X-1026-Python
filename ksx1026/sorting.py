@@ -1,9 +1,20 @@
 """
-Sort functions for KS X 1026-1
-"""
+========================================================================
+ Hangul sorting functions defined in KS X 1026-1
+========================================================================
+.. moduleauthor:: Wonsup Yoon <pusnow@me.com>
+
+
+Reference
+============
+
+ * http://www.unicode.org/L2/L2008/08225-n3422.pdf
+
+ """
+
 from . import uchar
-from . import INDEX1100, INDEXA960, INDEXD7B0, INDEXD7CB
-from . import HWJAMO, CPJAMO, PACHAR, CLCHAR
+from .constants import INDEX1100, INDEXA960, INDEXD7B0, INDEXD7CB
+from .constants import HWJAMO, CPJAMO, PACHAR, CLCHAR
 from .normalization import decomposeHangul
 
 
@@ -137,11 +148,15 @@ def sortKey(text, hangul_first=True):
     for ch in text:
         if uchar.isHangulLetter(ch):
             weight = getHangulWeight(ch)
+            _type = weight & 3
+            weight = weight >> 2
+            weight = weight << 1
+            weight = weight | _type
             if not hangul_first:
-                weight += 1 << 32
+                weight += 1 << 31
         else:
             weight = ord(ch)
             if hangul_first:
-                weight += 1 << 32
+                weight += 1 << 31
         weights.append(weight)
     return weights

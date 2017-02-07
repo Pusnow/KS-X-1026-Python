@@ -1,9 +1,20 @@
 """
-Nomalization functions for KS X 1026-1
-"""
-from . import SBase, LBase, VBase, TBase
-from . import LCount, VCount, TCount, NCount, SCount
-from . import CPJAMO, HWJAMO, PCJAMO
+========================================================================
+ Hangul normalization functions defined in KS X 1026-1
+========================================================================
+.. moduleauthor:: Wonsup Yoon <pusnow@me.com>
+
+
+Reference
+============
+
+ * http://www.unicode.org/L2/L2008/08225-n3422.pdf
+
+ """
+
+from .constants import SBase, LBase, VBase, TBase
+from .constants import LCount, VCount, TCount, NCount, SCount
+from .constants import CPJAMO, HWJAMO, PCJAMO
 from . import uchar
 
 
@@ -11,7 +22,7 @@ def decomposeHangul(S):
     """
     returns a Johab Modern Hangul Syllable Block for the given Wanseong Modern Hangul Syllable Block
 
-    :param char S: Single character string
+    :param char S: Single character Hangul Syllable. If not, return input.
     """
     SIndex = ord(S) - SBase
     if SIndex < 0 or SIndex >= SCount:
@@ -31,11 +42,9 @@ def composeHangul(source):
     """
     returns a Wanseong Modern Hangul Syllable Block for the given Johab Modern Hangul Syllable
     Block. Even when a portion of an Old Hangul Syllable Block is a Modern Hangul Syllable Block,
-    # 15, that portion is not transformed to a Wanseong Modern Hangul Syllable
-    # Block.
-    unlike UAX
+    unlike UAX #15, that portion is not transformed to a Wanseong Modern Hangul Syllable Block.
 
-    :param string source: unicode string
+    :param string source: unicode string.
     """
     length = len(source)
     if length == 0:
@@ -80,7 +89,7 @@ def composeHangul(source):
 
 def recomposeHangul(source):
     """
-    If one uses a UAX #15 algorithm instead of the above compose2Hangul function for normalization,
+    If one uses a UAX #15 algorithm instead of the above composeHangul function for normalization,
     an Old Hangul Syllable Block can be decomposed into a Wanseong Modern Hangul Syllable Block and
     Johab Hangul Letter(s). In such cases, after applying, one can use the following recomposition
     algorithm to restore a character string in Normalization Form NFC or NFKC to an L V T format.

@@ -1,10 +1,18 @@
 """
-    Constants for KS X 1026-1
-"""
+====================================
+ Constants for KS X 1026-1
+====================================
+.. moduleauthor:: Wonsup Yoon <pusnow@me.com>
 
-__version__ = '0.0.1'
 
+All constants for KS X 1026-1.
 
+Reference
+============
+
+ * http://www.unicode.org/L2/L2008/08225-n3422.pdf
+
+ """
 SBase = 0xAC00
 LBase = 0x1100
 VBase = 0x1161
