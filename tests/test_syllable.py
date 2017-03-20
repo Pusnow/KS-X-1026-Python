@@ -9,18 +9,17 @@ import itertools
 
 
 class SyllableTest(unittest.TestCase):
-
     def setUp(self):
-        self.syllable = list(chr(x) for x in range(
-            int("AC00", 16), int("D7A3", 16) + 1))
+        self.syllable = list(
+            chr(x) for x in range(int("AC00", 16), int("D7A3", 16) + 1))
 
-        lchar = list(chr(x)
-                     for x in range(int("1100", 16), int("1159", 16) + 1))
+        lchar = list(
+            chr(x) for x in range(int("1100", 16), int("1159", 16) + 1))
 
-        vchar = list(chr(x)
-                     for x in range(int("1160", 16), int("11A7", 16) + 1))
-        tchar = [""] + list(chr(x)
-                            for x in range(int("11A8", 16), int("11C2", 16) + 1))
+        vchar = list(
+            chr(x) for x in range(int("1160", 16), int("11A7", 16) + 1))
+        tchar = [""] + list(
+            chr(x) for x in range(int("11A8", 16), int("11C2", 16) + 1))
         self.lvt = itertools.product(lchar, vchar, tchar)
 
     def test_uchar(self):
@@ -47,7 +46,7 @@ class SyllableTest(unittest.TestCase):
 
     def test_lvt(self):
         """
-        Test will fail if you use Python versions under 3.6.0 
+        Test will fail if you use Python versions under 3.6.0
         There are bugs in unicodedata.normalize
 
         """
@@ -56,8 +55,10 @@ class SyllableTest(unittest.TestCase):
             s = unicodedata.normalize("NFC", lvt)
             if len(t) == 1:
                 t = hex(ord(t))
-            self.assertEqual(normalization.composeHangul(
-                lvt), s, msg=hex(ord(l)) + hex(ord(v)) + t)
+            self.assertEqual(
+                normalization.composeHangul(lvt),
+                s,
+                msg=hex(ord(l)) + hex(ord(v)) + t)
 
 
 if __name__ == '__main__':

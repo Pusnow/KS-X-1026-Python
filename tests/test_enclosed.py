@@ -5,16 +5,14 @@ Tests for Enclosed CJK Letters and Months
 from ksx1026 import uchar, normalization
 import unittest
 import unicodedata
-import itertools
 
 
 class EnclosedTest(unittest.TestCase):
-
     def setUp(self):
-        self.parenthesized = list(chr(x) for x in range(
-            int("3200", 16), int("321E", 16) + 1))
-        self.circled = list(chr(x) for x in range(
-            int("3260", 16), int("327E", 16) + 1))
+        self.parenthesized = list(
+            chr(x) for x in range(int("3200", 16), int("321E", 16) + 1))
+        self.circled = list(
+            chr(x) for x in range(int("3260", 16), int("327E", 16) + 1))
 
     def test_parenthesized(self):
         for p in self.parenthesized:

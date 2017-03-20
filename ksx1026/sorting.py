@@ -82,7 +82,6 @@ def getHangulWeight(hc):
     L = chr(0x115F)
     V = chr(0x1160)
     T = None
-
     """
     _type:
     0 is assigned to a Johab Hangul Syllable Block or Wanseong Hangul Syllable Block.
