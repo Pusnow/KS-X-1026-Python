@@ -1,25 +1,27 @@
+# -*- coding: utf-8 -*-
 """
 Tests for modern syllable
 """
-
+from __future__ import unicode_literals
 from ksx1026 import uchar, normalization
 import unittest
 import unicodedata
 import itertools
+import six
 
 
 class SyllableTest(unittest.TestCase):
     def setUp(self):
         self.syllable = list(
-            chr(x) for x in range(int("AC00", 16), int("D7A3", 16) + 1))
+            six.unichr(x) for x in range(int("AC00", 16), int("D7A3", 16) + 1))
 
         lchar = list(
-            chr(x) for x in range(int("1100", 16), int("1159", 16) + 1))
+            six.unichr(x) for x in range(int("1100", 16), int("1159", 16) + 1))
 
         vchar = list(
-            chr(x) for x in range(int("1160", 16), int("11A7", 16) + 1))
+            six.unichr(x) for x in range(int("1160", 16), int("11A7", 16) + 1))
         tchar = [""] + list(
-            chr(x) for x in range(int("11A8", 16), int("11C2", 16) + 1))
+            six.unichr(x) for x in range(int("11A8", 16), int("11C2", 16) + 1))
         self.lvt = itertools.product(lchar, vchar, tchar)
 
     def test_uchar(self):

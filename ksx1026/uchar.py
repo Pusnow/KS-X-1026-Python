@@ -11,6 +11,7 @@ Reference
  * http://www.unicode.org/L2/L2008/08225-n3422.pdf
 
  """
+from __future__ import unicode_literals
 
 
 def isModernChoseong(L):

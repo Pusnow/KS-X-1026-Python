@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 ====================================
  Constants for KS X 1026-1
@@ -13,6 +14,7 @@ Reference
  * http://www.unicode.org/L2/L2008/08225-n3422.pdf
 
  """
+from __future__ import unicode_literals
 SBase = 0xAC00
 LBase = 0x1100
 VBase = 0x1161

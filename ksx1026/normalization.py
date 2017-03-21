@@ -11,11 +11,12 @@ Reference
  * http://www.unicode.org/L2/L2008/08225-n3422.pdf
 
  """
-
+from __future__ import unicode_literals
 from .constants import SBase, LBase, VBase, TBase
 from .constants import LCount, VCount, TCount, NCount, SCount
 from .constants import CPJAMO, HWJAMO, PCJAMO
 from . import uchar
+import six
 
 
 def decomposeHangul(S):
@@ -31,10 +32,10 @@ def decomposeHangul(S):
     L = LBase + SIndex // NCount
     V = VBase + (SIndex % NCount) // TCount
     T = TBase + SIndex % TCount
-    result += chr(L)
-    result += chr(V)
+    result += six.unichr(L)
+    result += six.unichr(V)
     if T != TBase:
-        result += chr(T)
+        result += six.unichr(T)
     return result
 
 
@@ -60,7 +61,7 @@ def composeHangul(source):
         if 0 <= LIndex and LIndex < LCount:
             VIndex = ord(ch) - VBase
             if 0 <= VIndex and VIndex < VCount:
-                last = chr(SBase + (LIndex * VCount + VIndex) * TCount)
+                last = six.unichr(SBase + (LIndex * VCount + VIndex) * TCount)
                 len_result = len(result)
                 result[len_result - 1] = last
                 continue
@@ -68,7 +69,7 @@ def composeHangul(source):
         if 0 <= SIndex and SIndex < SCount and (SIndex % TCount) == 0:
             TIndex = ord(ch) - TBase
             if 0 < TIndex and TIndex < TCount:
-                last = chr(ord(last) + TIndex)
+                last = six.unichr(ord(last) + TIndex)
                 len_result = len(result)
                 result[len_result - 1] = last
                 continue
@@ -77,8 +78,8 @@ def composeHangul(source):
                 L = LBase + SIndex // NCount
                 V = VBase + (SIndex % NCount) // TCount
                 len_result = len(result)
-                result[len_result - 1] = chr(L)
-                result += chr(V)
+                result[len_result - 1] = six.unichr(L)
+                result += six.unichr(V)
                 result += ch
                 continue
         last = ch
@@ -114,8 +115,8 @@ def recomposeHangul(source):
             if uchar.isOldJongseong(ch):
                 L = LBase + SIndex // NCount
                 V = VBase + (SIndex % NCount) // TCount
-                result[len(result) - 1] = chr(L)
-                result += chr(V)
+                result[len(result) - 1] = six.unichr(L)
+                result += six.unichr(V)
                 result += ch
                 continue
         last = ch
@@ -146,15 +147,15 @@ def normalizeJamoKDKC(source):
         pf = 0
 
         if uchar.isCompatibilityLetter(ch):
-            ch = chr(CPJAMO[ord(ch) - 0x3131])
+            ch = six.unichr(CPJAMO[ord(ch) - 0x3131])
         elif PHBase <= ord(ch) and ord(ch) <= PHEnd:
             result += '\u0028'
-            ch = chr(PCJAMO[ord(ch) - PHBase])
+            ch = six.unichr(PCJAMO[ord(ch) - PHBase])
             pf = '\u0029'
         elif CHBase <= ord(ch) and ord(ch) <= CHEnd:
-            ch = chr(PCJAMO[ord(ch) - CHBase])
+            ch = six.unichr(PCJAMO[ord(ch) - CHBase])
         elif uchar.isHalfwidthLetter(ch):
-            ch = chr(HWJAMO[ord(ch) - 0xFFA0])
+            ch = six.unichr(HWJAMO[ord(ch) - 0xFFA0])
         else:
             result += ch
             continue

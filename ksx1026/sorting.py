@@ -11,11 +11,12 @@ Reference
  * http://www.unicode.org/L2/L2008/08225-n3422.pdf
 
  """
-
+from __future__ import unicode_literals
 from . import uchar
 from .constants import INDEX1100, INDEXA960, INDEXD7B0, INDEXD7CB
 from .constants import HWJAMO, CPJAMO, PACHAR, CLCHAR
 from .normalization import decomposeHangul
+import six
 
 
 def getHangulWeightLVT(L, V, T, _type=0):
@@ -79,8 +80,8 @@ def getHangulWeight(hc):
     _type = 0
     index = ord(hc)
     weight = 0
-    L = chr(0x115F)
-    V = chr(0x1160)
+    L = six.unichr(0x115F)
+    V = six.unichr(0x1160)
     T = None
     """
     _type:
@@ -114,7 +115,7 @@ def getHangulWeight(hc):
         if index == ord(hc):
             raise
 
-    index = chr(index)
+    index = six.unichr(index)
     if uchar.isChoseongJamo(index):
         L = index
     elif uchar.isJungseongJamo(index):
