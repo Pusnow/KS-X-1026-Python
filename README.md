@@ -1,6 +1,5 @@
 ## Important Notice
 
-* Currently only available for Python 3.
 * Because of bugs at Python standard library (unicodedata). Some tests can fail with Python version under 3.6.0.
 
 # KS X 1026 Python
@@ -13,7 +12,7 @@ KS X 1026-1 is a Korean standard for  Hangul processing guide for information in
 ## Installation
 KS X 1026 Python is available via PyPi
 
-    pip3 install ksx1026.
+    pip install ksx1026.
 
 or setup.py
 
