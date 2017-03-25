@@ -1,7 +1,3 @@
-## Important Notice
-
-* Because of bugs at Python standard library (unicodedata). Some tests can fail with Python version under 3.6.0.
-
 # KS X 1026 Python
 Python implementation for KS X 1026-1.
 

@@ -16,11 +16,10 @@ class SyllableTest(unittest.TestCase):
             six.unichr(x) for x in range(int("AC00", 16), int("D7A3", 16) + 1))
 
         lchar = list(
-            six.unichr(x) for x in range(int("1100", 16), int("1159", 16) + 1))
-
+            six.unichr(x) for x in range(int("1100", 16), int("1112", 16) + 1))
         vchar = list(
-            six.unichr(x) for x in range(int("1160", 16), int("11A7", 16) + 1))
-        tchar = [""] + list(
+            six.unichr(x) for x in range(int("1161", 16), int("1175", 16) + 1))
+        tchar = list(
             six.unichr(x) for x in range(int("11A8", 16), int("11C2", 16) + 1))
         self.lvt = itertools.product(lchar, vchar, tchar)
 
@@ -47,17 +46,9 @@ class SyllableTest(unittest.TestCase):
             self.assertEqual(normalization.decomposeHangul(s), lvt)
 
     def test_lvt(self):
-        """
-        Test will fail if you use Python versions under 3.6.0
-        There are bugs in unicodedata.normalize
-
-        """
         for l, v, t in self.lvt:
             lvt = "".join((l, v, t))
 
-            # Python bug pass
-            if v == "ᅶ":
-                continue
             s = unicodedata.normalize("NFC", lvt)
             if len(t) == 1:
                 t = hex(ord(t))
