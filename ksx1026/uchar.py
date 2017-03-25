@@ -96,7 +96,7 @@ def isJongseongJamo(T):
     :param char T: Single character string
     """
     if (0x11A8 <= ord(T) and ord(T) <= 0x11FF) or \
-            (0xD7CB <= ord(T) and T <= 0xD7FB):
+            (0xD7CB <= ord(T) and ord(T) <= 0xD7FB):
         return True
     else:
         return False
