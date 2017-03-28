@@ -124,7 +124,9 @@ class OldJamoTest(unittest.TestCase):
             self.assertEqual(
                 normalization.composeHangul(lv + t),
                 normalization.decomposeHangul(lv) + t)
-            self.assertEqual(normalization.recomposeHangul(lv + t), lv + t)
+            self.assertEqual(
+                normalization.recomposeHangul(lv + t),
+                normalization.decomposeHangul(lv) + t)
 
 
 if __name__ == '__main__':
