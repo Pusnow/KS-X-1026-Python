@@ -144,9 +144,41 @@ def sortKey(text, hangul_first=True):
     :param string text: A string for weight
     :param bool hangul_first: Boolean
     """
+
     weights = []
-    for ch in text:
-        if uchar.isHangulLetter(ch):
+    itr = enumerate(text)
+    for i, ch in itr:
+        if uchar.isChoseongJamo(ch):
+            L = ch
+            V = six.unichr(0x1160)
+            T = None
+            if i + 1 < len(text) and uchar.isJungseongJamo(text[i + 1]):
+                _, V = next(itr)
+                if i + 2 < len(text) and uchar.isJongseongJamo(text[i + 2]):
+                    _, T = next(itr)
+            _type = 0
+            weight = getHangulWeightLVT(L, V, T, _type)
+            _type = weight & 3
+            weight = weight >> 2
+            weight = weight << 1
+            weight = weight | _type
+            if not hangul_first:
+                weight += 1 << 31
+        elif uchar.isJongseongJamo(ch):
+            L = six.unichr(0x115F)
+            V = ch
+            if i + 1 < len(text) and uchar.isJongseongJamo(text[i + 1]):
+                _, T = next(itr)
+            _type = 0
+            weight = getHangulWeightLVT(L, V, T, _type)
+            _type = weight & 3
+            weight = weight >> 2
+            weight = weight << 1
+            weight = weight | _type
+            if not hangul_first:
+                weight += 1 << 31
+
+        elif uchar.isHangulLetter(ch):
             weight = getHangulWeight(ch)
             _type = weight & 3
             weight = weight >> 2
@@ -158,5 +190,6 @@ def sortKey(text, hangul_first=True):
             weight = ord(ch)
             if hangul_first:
                 weight += 1 << 31
+
         weights.append(weight)
     return weights
