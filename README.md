@@ -1,4 +1,6 @@
 # KS X 1026 Python
+[![Build Status](https://travis-ci.org/Pusnow/KS-X-1026-Python.svg?branch=master)](https://travis-ci.org/Pusnow/KS-X-1026-Python)
+
 Python implementation for KS X 1026-1.
 
 
