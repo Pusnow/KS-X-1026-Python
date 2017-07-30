@@ -44,6 +44,18 @@ class SyllableTest(unittest.TestCase):
         for s in self.syllable:
             lvt = unicodedata.normalize("NFD", s)
             self.assertEqual(normalization.decomposeHangul(s), lvt)
+            self.assertEqual(
+                normalization.decomposeHangulStr("\uAC01" + s),
+                "\u1100\u1161\u11a8" + lvt)
+            self.assertEqual(
+                normalization.decomposeHangulStr(s + "\uAC01"),
+                lvt + "\u1100\u1161\u11a8")
+            self.assertEqual(
+                normalization.decomposeHangulStr("A" + s),
+                "A" + lvt)
+            self.assertEqual(
+                normalization.decomposeHangulStr(s + "A"),
+                lvt + "A")
 
     def test_lvt(self):
         for l, v, t in self.lvt:

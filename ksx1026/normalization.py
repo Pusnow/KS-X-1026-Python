@@ -39,6 +39,20 @@ def decomposeHangul(S):
     return result
 
 
+def decomposeHangulStr(source):
+    """
+    returns a Johab Modern Hangul Syllable String for the given Wanseong Modern Hangul Syllable String
+
+    :param string source: Single character Hangul Syllable. If not, return input.
+    """
+    result = []
+
+    for S in source:
+        result.append(decomposeHangul(S))
+
+    return "".join(result)
+
+
 def composeHangul(source):
     """
     returns a Wanseong Modern Hangul Syllable Block for the given Johab Modern Hangul Syllable

@@ -30,6 +30,17 @@ char S: Single character Hangul Syllable. If not, return input.
     >>> print(d.encode('raw_unicode_escape'))
     b'\\u1100\\u1161\\u11a8'
 
+### Hangul Decomposition String
+Returns a Johab Modern Hangul Syllable string for the given Wanseong Modern Hangul Syllable string
+
+string source: unicode string.
+
+    >>> from ksx1026.normalization import decomposeHangulStr
+    >>> source = "\uAC01\uAC01"
+    >>> d = decomposeHangul(source)
+    >>> print(d.encode('raw_unicode_escape'))
+    b'\\u1100\\u1161\\u11a8\\u1100\\u1161\\u11a8'
+
 ### Hangul Composition
 
 Returns a Wanseong Modern Hangul Syllable Block for the given Johab Modern Hangul Syllable Block. Even when a portion of an Old Hangul Syllable Block is a Modern Hangul Syllable Block,unlike UAX #15, that portion is not transformed to a Wanseong Modern Hangul Syllable Block.
